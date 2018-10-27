@@ -2,7 +2,28 @@
 
 declare(strict_types = 1);
 
-require_once __DIR__ . '/../vendor/autoload.php';
-$userFilePath = __DIR__ . '/../data/users.json';
+use Domain\Authentication\Entity\User;
+use Infrastructure\Repository\FileStorageUserRepository;
 
-echo 'OK';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+
+$emailInput = $_POST['email'];
+$passwordInput = $_POST['password'];
+$user = User::fromFormData($emailInput, $passwordInput);
+
+$userRepository = new FileStorageUserRepository();
+if ($userRepository->exists($user)) {
+    echo 'Nope';
+}
+
+$stored = $userRepository->store($user);
+if ($stored) {
+    echo 'Ok';
+
+    return;
+}
+
+throw new Exception('Can not store the new user in repository');
+
+
