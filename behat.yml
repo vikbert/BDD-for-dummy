@@ -1,0 +1,15 @@
+default:
+
+  paths:
+    features: features
+    bootstrap: %behat.paths.features%/bootstrap
+
+  extensions:
+    Behat\MinkExtension:
+      base_url:  'http://localhost:8010'
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            browser: phantomjs
