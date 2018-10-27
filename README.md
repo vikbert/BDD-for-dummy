@@ -1,8 +1,8 @@
 # BDD For Dummy from the DDD perspective
 
-This tutorial will introduce you to using BDD to start the implementation of
-basic authentication tutorial, then have a short look at DDD 
-with tactical DDD concepts.
+This tutorial will guide you to using BDD to start a simplistic "already known" 
+`Authentication` domain, then introduce you to have a short look at DDD 
+with tactical DDD concepts in the target `domain`.
 
 ## Plan of operation
 
