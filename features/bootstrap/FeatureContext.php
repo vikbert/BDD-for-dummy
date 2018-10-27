@@ -1,22 +1,26 @@
 <?php
 
-use Behat\Behat\Context\Context;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
+use Behat\MinkExtension\Context\MinkContext;
 
-/**
- * Defines application features from the specific context.
- */
-class FeatureContext implements Context
+class FeatureContext extends MinkContext
 {
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
     public function __construct()
     {
+    }
+
+    /**
+     * @Given I visit :path
+     */
+    public function iVisit($path): void
+    {
+        $this->visit($path);
+    }
+
+    /**
+     * @Then I should see the page tile :title
+     */
+    public function iShouldSeeThePageTitle(string $title): void
+    {
+        $this->assertPageContainsText($title);
     }
 }

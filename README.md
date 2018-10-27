@@ -33,6 +33,6 @@ First, [install composer](https://getcomposer.org/download/).
 After that, you can run:
 
 ```sh
-composer req --dev phpstan/phpstan
 composer install
+bin/behat --init
 ```
