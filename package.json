@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "phantomjs": "^2.1.7"
+    "phantomjs-prebuilt": "^2.1.16"
   }
 }

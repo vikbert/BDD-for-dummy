@@ -5,4 +5,4 @@ Feature: Login
 
   Scenario: User can see the page with login form
     Given I visit "login-form.php"
-    When I should see the page tile "login form"
+    Then I should see the page tile "login form"
