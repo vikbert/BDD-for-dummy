@@ -33,5 +33,9 @@
     },
     "config": {
         "bin-dir": "bin/"
+    },
+    "scripts": {
+        "test": "bin/phpunit tests/; bin/behat --colors",
+        "code": "bin/php-cs-fixer fix src; bin/phpstan --level=max analyse src features public tests"
     }
 }
