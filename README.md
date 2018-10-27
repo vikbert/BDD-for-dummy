@@ -17,7 +17,7 @@ $ yarn install  ## npm install
 # Open a new terminal, then
 $ php -S 127.0.0.1:8010 -t public
 
-
 # Open another terminal, then
-$ bin/behat
+$ composer test  # unit test & behat test
+$ composer code  # code analyse
 ```
