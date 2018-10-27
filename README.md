@@ -20,6 +20,9 @@ with tactical DDD concepts in the target `domain`.
  5. Looking at how to improve our `Authentication` code
  6. Wiring the ORM into our `Authentication` code
 
+## TODOs
+- [] setup behat tests
+ 
 ### Installation
 
 First, [install composer](https://getcomposer.org/download/).
