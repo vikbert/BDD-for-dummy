@@ -23,7 +23,8 @@ with tactical DDD concepts in the target `domain`.
 ## TODOs
 
 - setup behat tests
-    -  
+    - behat init
+    - setup phantomjs 
  
 ### Installation
 

@@ -25,5 +25,8 @@
             "Test\\Acceptance\\": "test/Acceptance",
             "Test\\Unit\\": "test/Unit"
         }
+    },
+    "config": {
+        "bin-dir": "bin/"
     }
 }
