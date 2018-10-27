@@ -7,7 +7,6 @@ use Infrastructure\Repository\FileStorageUserRepository;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
 $emailInput = $_POST['email'];
 $passwordInput = $_POST['password'];
 $user = User::fromFormData($emailInput, $passwordInput);
