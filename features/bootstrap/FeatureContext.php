@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types = 1);
+
+namespace Features\Bootstrap;
+
 use Behat\MinkExtension\Context\MinkContext;
 
 class FeatureContext extends MinkContext

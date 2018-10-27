@@ -28,6 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Features\\Bootstrap\\": "features/bootstrap",
             "Test\\Integration\\": "test/Integration",
             "Test\\Acceptance\\": "test/Acceptance",
             "Test\\Unit\\": "test/Unit"
