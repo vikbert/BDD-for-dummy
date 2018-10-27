@@ -6,6 +6,7 @@ namespace Infrastructure\Repository;
 
 use Domain\Authentication\Entity\User;
 use Domain\Authentication\UserRepositoryInterface;
+use Webmozart\Assert\Assert;
 
 final class FileStorageUserRepository implements UserRepositoryInterface
 {
@@ -18,7 +19,12 @@ final class FileStorageUserRepository implements UserRepositoryInterface
             return $this->userCache;
         }
 
-        return json_decode(file_get_contents(self::USER_FILE_PATH), true);
+        $userDataJson = (string) file_get_contents(self::USER_FILE_PATH);
+        if ('' === $userDataJson) {
+            return [];
+        }
+
+        return json_decode($userDataJson, true);
     }
 
     public function exists(User $user): bool
@@ -31,6 +37,11 @@ final class FileStorageUserRepository implements UserRepositoryInterface
         $userData = self::findAll();
         $userData[$user->getEmail()] = $user->getPassword();
 
-        return null !== file_put_contents(self::USER_FILE_PATH, json_encode($userData));
+        $userDataJson = (string) json_encode($userData);
+        if ('' === $userDataJson) {
+            return false;
+        }
+
+        return null !== file_put_contents(self::USER_FILE_PATH, $userDataJson);
     }
 }
