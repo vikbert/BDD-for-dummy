@@ -10,4 +10,5 @@ Feature: Register
     And I fill in "password" with "password"
     And I press "register"
     Then I should see "OK"
+    And I should be on "register.php"
 

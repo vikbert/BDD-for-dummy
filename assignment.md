@@ -3,6 +3,13 @@
 #### Task 1: 
 Implement a simplistic "already known" register with given email and password
 
+- check if a user with the same email address exists
+- then print error message "Sorry, Email used" 
+- if not, create a user
+- hash the password
+- save the user
+- print confirm message "Registration done"
+
     - 1. `RED` write the senario and feature `register.feature` at first, and tun the tests
     - 2. `GREEN` 
    
