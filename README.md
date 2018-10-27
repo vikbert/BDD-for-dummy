@@ -6,7 +6,7 @@ with tactical DDD concepts in the target `domain`.
 
 ## Plan of operation
 
- 1. Installation of prerequisite via `composer`
+ 1. Installation of prerequisite
  2. Getting started with a simplistic "already known" 
     `Authentication` domain, *without* ORM
  3. Discussion of the first implementations popping up
@@ -21,7 +21,9 @@ with tactical DDD concepts in the target `domain`.
  6. Wiring the ORM into our `Authentication` code
 
 ## TODOs
-- [] setup behat tests
+
+- setup behat tests
+    -  
  
 ### Installation
 
@@ -30,5 +32,6 @@ First, [install composer](https://getcomposer.org/download/).
 After that, you can run:
 
 ```sh
+composer req --dev phpstan/phpstan
 composer install
 ```

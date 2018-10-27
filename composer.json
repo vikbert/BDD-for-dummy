@@ -1,0 +1,29 @@
+{
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1",
+        "ext-pdo_sqlite": "*",
+        "doctrine/dbal": "^2.7.1",
+        "doctrine/orm": "^2.6.1",
+        "doctrine/data-fixtures": "^1.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Domain\\": "src/Domain",
+            "Infrastructure\\": "src/Infrastructure"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1.5",
+        "behat/behat": "^3.4.3",
+        "phpstan/phpstan": "^0.10.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Integration\\": "test/Integration",
+            "Test\\Acceptance\\": "test/Acceptance",
+            "Test\\Unit\\": "test/Unit"
+        }
+    }
+}
