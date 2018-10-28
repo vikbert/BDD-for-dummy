@@ -1,7 +1,10 @@
 # Assignment
 
 ## Implement a simplistic "already known" authentication with email and password.
-> Note: ❌ means to create a behat tests and make sure that test is red. ✅ implement the feature to make the test green.
+
+Follow the following steps to add the feature in `BDD`
+- ❌ means to create a behat tests and make sure that test is red. 
+- ✅ implement the feature to make the test green.
 
 #### Task 1: 
 Implement a simplistic "already known" register with given email and password
