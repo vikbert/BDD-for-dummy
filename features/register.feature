@@ -21,3 +21,18 @@ Feature: Register
     Then I should be on "register.php"
     And I should see "Nope"
 
+  Scenario: User cannot cannot submit the form with invalid email
+    Given I visit "register-form.php"
+    Then I fill in "email" with "demo"
+    And I fill in "password" with "123test"
+    And I press "register"
+    Then I should be on "register.php"
+    And I should see "Nope, invalid email"
+
+  Scenario: User cannot cannot submit the form with invalid password
+    Given I visit "register-form.php"
+    Then I fill in "email" with "demo@test.de"
+    And I fill in "password" with "123"
+    And I press "register"
+    Then I should be on "register.php"
+    And I should see "Nope, invalid password"

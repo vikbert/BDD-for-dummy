@@ -3,13 +3,20 @@
 declare(strict_types = 1);
 
 use Domain\Authentication\Entity\User;
+use Domain\Authentication\UserRegisterException;
 use Infrastructure\Repository\FileStorageUserRepository;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $emailInput = $_POST['email'];
 $passwordInput = $_POST['password'];
-$user = User::fromFormData($emailInput, $passwordInput);
+try {
+    $user = User::fromFormData($emailInput, $passwordInput);
+} catch (UserRegisterException $exception) {
+    echo $exception->getMessage();
+
+    return;
+}
 
 $userRepository = new FileStorageUserRepository();
 if ($userRepository->exists($user)) {
