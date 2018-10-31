@@ -32,6 +32,8 @@ Implement a simplistic "already known" registration with given email and passwor
 - ✅ add email validation and ensure validation message is shown
 - ❌ Scenario: form with too short password can not be register
 - ✅ add password validation and ensure validation message is shown
+- ❌ Scenario: login-form.php is reachable for login
+- ✅ add login-form.php and the login form is shown correctly
    
 ## Task 2:
 Discussion of the first implementations popping up
