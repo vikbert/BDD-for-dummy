@@ -6,12 +6,18 @@ namespace Infrastructure\Repository;
 
 use Domain\Authentication\Entity\User;
 use Domain\Authentication\UserRepositoryInterface;
-use Webmozart\Assert\Assert;
 
 final class FileStorageUserRepository implements UserRepositoryInterface
 {
     private const USER_FILE_PATH = __DIR__ . '/../../../data/users.json';
+
     private $userCache = null;
+    private $filePath;
+
+    public function __construct(string $filePath = null)
+    {
+        $this->filePath = $filePath?? self::USER_FILE_PATH;
+    }
 
     public function findAll(): array
     {
@@ -32,10 +38,20 @@ final class FileStorageUserRepository implements UserRepositoryInterface
         return array_key_exists($user->getEmail(), self::findAll());
     }
 
+    public function findOneBy(string $email): ?User
+    {
+        $userData = self::findAll();
+        if (array_key_exists($email, $userData)) {
+            return User::fromUserData($email, $userData[$email]);
+        }
+
+        return null;
+    }
+
     public function store(User $user): bool
     {
         $userData = self::findAll();
-        $userData[$user->getEmail()] = $user->getPassword();
+        $userData[$user->getEmail()] = $user->getPasswordHash();
 
         $userDataJson = (string) json_encode($userData);
         if ('' === $userDataJson) {

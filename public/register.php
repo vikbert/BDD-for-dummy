@@ -10,6 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $emailInput = $_POST['email'];
 $passwordInput = $_POST['password'];
+
 try {
     $user = User::fromFormData($emailInput, $passwordInput);
 } catch (UserRegisterException $exception) {
@@ -19,8 +20,10 @@ try {
 }
 
 $userRepository = new FileStorageUserRepository();
-if ($userRepository->exists($user)) {
+if (null !== $userRepository->findOneBy($user->getEmail())) {
     echo 'Nope';
+
+    return;
 }
 
 $stored = $userRepository->store($user);

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo '{}' > ./data/users.json
+bin/behat -v

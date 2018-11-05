@@ -9,8 +9,8 @@ Feature: Register
     Then I fill in "email" with "demo@demo.de"
     And I fill in "password" with "password"
     And I press "register"
-    Then I should see "Ok"
-    And I should be on "register.php"
+    Then I should be on "register.php"
+    And I should see "Ok"
 
   Scenario: User cannot repeat the register with the same email
     Given I visit "register-form.php"

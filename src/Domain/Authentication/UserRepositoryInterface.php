@@ -10,5 +10,6 @@ interface UserRepositoryInterface
 {
     public function findAll(): array;
     public function exists(User $user): bool;
+    public function findOneBy(string $email): ?User;
     public function store(User $user): bool;
 }

@@ -9,28 +9,34 @@ use Domain\Authentication\UserRegisterException;
 final class User
 {
     private $email;
-    private $password;
+    private $passwordHash;
 
-    private function __construct(string $email, string $password)
+    private function __construct(string $email, string $passwordHash)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw UserRegisterException::invalidEmail($email);
         }
 
-        if (strlen($password) <= 3) {
-            throw UserRegisterException::invalidPassword($password);
-        }
-
         $this->email = $email;
-        $this->password = $password;
+        $this->passwordHash = $passwordHash;
     }
 
     /**
      * @throws UserRegisterException
      */
-    public static function fromFormData(string $email, string $password): self
+    public static function fromUserData(string $email, string $passwordHash): self
     {
-        return new self($email, $password);
+        return new self($email, $passwordHash);
+    }
+
+    public static function fromFormData(string $emailInput, string $passwordInput): self
+    {
+        $passwordHash = password_hash($passwordInput, PASSWORD_DEFAULT);
+        if (strlen($passwordInput) <= 3 || false === $passwordHash) {
+            throw new UserRegisterException('Nope, invalid password');
+        }
+
+        return new self($emailInput, $passwordHash);
     }
 
     public function getEmail(): string
@@ -38,8 +44,8 @@ final class User
         return $this->email;
     }
 
-    public function getPassword(): string
+    public function getPasswordHash(): string
     {
-        return $this->password;
+        return $this->passwordHash;
     }
 }
